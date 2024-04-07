@@ -63,6 +63,7 @@ const App = () => {
     settotalExpense(
       prevtotalExpense => prevtotalExpense + parseFloat(newExpenseAmount),
     );
+    setBalance(prevBalance => prevBalance - parseFloat(newExpenseAmount));
     setModalVisible(false);
 
     setNewExpenseDescription('');
