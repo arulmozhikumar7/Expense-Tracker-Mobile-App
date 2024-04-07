@@ -1,4 +1,4 @@
-import {TouchableOpacity} from 'react-native';
+import {TouchableOpacity, View, Text} from 'react-native';
 import React from 'react';
 import AllCards from './AllCards';
 import AddButton from './AddButton';
@@ -15,7 +15,17 @@ const ExpenseScreen = ({
 }) => {
   return (
     <>
-      <AllCards data={expenses} />
+      {expenses.length === 0 ? (
+        <View className="flex-grow">
+          <Text className="text-center p-28 font-bold">
+            No Expenses. Make sure that there is enough balance before adding an
+            expense
+          </Text>
+        </View>
+      ) : (
+        <AllCards data={expenses} />
+      )}
+
       <TouchableOpacity
         onPress={() => setModalVisible(true)}
         activeOpacity={0.8}>
